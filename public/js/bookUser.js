@@ -34,9 +34,11 @@ btn.addEventListener("click", (e) => {
   let name = document.getElementById("name").value;
   let age = document.getElementById("age").value;
   let gender = document.getElementById("gender").value;
+  let email = document.getElementById("email").value;
   let date = document.getElementById("date").value + "";
 
-  console.log(date);
+
+  console.log(email);
   firestore
     .collection("visitors")
     .get()
@@ -49,7 +51,8 @@ btn.addEventListener("click", (e) => {
       name: name,
       gender: gender,
       age: age,
-      date: date,
+      email: email,
+      date: date
     })
     .then(() => {})
     .catch((error) => {

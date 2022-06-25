@@ -40,6 +40,7 @@
                           class="form-control"
                           id="name"
                           placeholder="name@example.com"
+                          required
                         />
                         <label for="name">Name</label>
                       </div>
@@ -51,22 +52,37 @@
                           class="form-control"
                           id="age"
                           placeholder="name@example.com"
+                          required
                         />
                         <label for="age">Age</label>
                       </div>
                     </div>
                     <div class="col-md-12 mb-2">
+                      <div class="form-floating mb-3">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          placeholder="name@example.com"
+                          required
+                        />
+                        <label for="email">Email</label>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-2">
                       <select
-                      id="gender"
+                        id="gender"
                         class="form-select form-select-lg mb-3"
                         aria-label=".form-select-lg example"
+                        required
                       >
                         <option selected disabled>Gender</option>
                         <option value="male">Male</option>
-                        <option value="2">Female</option>
+                        <option value="female">Female</option>
                         <option value="other">Other</option>
                       </select>
                     </div>
+
                     <div class="col-md-12 mb-2">
                       <div class="form-floating mb-3">
                         <input
@@ -74,6 +90,7 @@
                           class="form-control"
                           id="date"
                           placeholder="name@example.com"
+                          required
                         />
                         <label for="date">Date of Booking</label>
                       </div>
