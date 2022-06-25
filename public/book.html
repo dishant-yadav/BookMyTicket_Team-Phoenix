@@ -17,7 +17,6 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/book.css" />
-    <script defer src="./book.js"></script>
   </head>
   <body>
     <section class="vh-100">
@@ -32,166 +31,80 @@
                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">
                   Registration Form
                 </h3>
-                <form id="form" action="/book">
+                <form id="form">
                   <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-12 mb-2">
                       <div class="form-floating mb-3">
                         <input
                           type="name"
                           class="form-control"
-                          id="fname"
+                          id="name"
                           placeholder="name@example.com"
                         />
-                        <label for="floatingInput">First Name</label>
+                        <label for="name">Name</label>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-12 mb-2">
                       <div class="form-floating mb-3">
                         <input
                           type="name"
                           class="form-control"
-                          id="lname"
+                          id="sName"
                           placeholder="name@example.com"
                         />
-                        <label for="floatingInput">Last Name</label>
+                        <label for="sName">Show Name</label>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                    <div class="col-md-12 mb-2">
+                      <div class="form-floating mb-3">
+                        <input
+                          type="name"
+                          class="form-control"
+                          id="sDesc"
+                          placeholder="name@example.com"
+                        />
+                        <label for="sDesc">Show Description</label>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                      <div class="form-floating mb-3">
+                        <input
+                          type="name"
+                          class="form-control"
+                          id="sVenue"
+                          placeholder="name@example.com"
+                        />
+                        <label for="sVenue">Show Venue</label>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-2">
                       <div class="form-floating mb-3">
                         <input
                           type="number"
                           class="form-control"
-                          id="floatingInput"
+                          id="ticketNo"
                           placeholder="name@example.com"
                         />
-                        <label for="floatingInput">Age</label>
+                        <label for="ticketNo">Number of Tickets</label>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                      <h6 class="mb-2 pb-1">Gender:</h6>
-
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="inlineRadioOptions"
-                          id="femaleGender"
-                          value="option1"
-                          checked
-                        />
-                        <label class="form-check-label" for="femaleGender"
-                          >Female</label
-                        >
-                      </div>
-
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="inlineRadioOptions"
-                          id="maleGender"
-                          value="option2"
-                        />
-                        <label class="form-check-label" for="maleGender"
-                          >Male</label
-                        >
-                      </div>
-
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="inlineRadioOptions"
-                          id="otherGender"
-                          value="option3"
-                        />
-                        <label class="form-check-label" for="otherGender"
-                          >Other</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
+                    <div class="col-md-12 mb-2">
                       <div class="form-floating mb-3">
                         <input
-                          type="email"
+                          type="date"
                           class="form-control"
-                          id="floatingInput"
+                          id="sDate"
                           placeholder="name@example.com"
                         />
-                        <label for="floatingInput">Email</label>
+                        <label for="sDate">Date of Booking</label>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                      <div class="form-outline">
-                        <div class="form-floating mb">
-                          <input
-                            type="tel"
-                            class="form-control"
-                            id="floatingInput"
-                            placeholder="name@example.com"
-                          />
-                          <label for="floatingInput">Phone Number</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row flex-column">
-                    <h6 class="mb-2 pb-1">Heritage Sites</h6>
-
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="Barabati"
-                        id="Barabati"
-                        value="option1"
-                      />
-                      <label class="form-check-label" for="Barabati"
-                        >Barabati Temple</label
-                      >
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="jagarnath"
-                        value="option2"
-                      />
-                      <label class="form-check-label" for="jagarnath"
-                        >Jagarnath Temple</label
-                      >
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="Sisupalgarh"
-                        id="Sisupalgarh"
-                        value="option3"
-                      />
-                      <label class="form-check-label" for="Sisupalgarh"
-                        >Sisupalgarh</label
-                      >
-                    </div>
-                  </div>
-
-                  <div class="row mt-4">
                     <button
+                      type="button"
                       id="btn"
                       class="btn btn-primary btn-lg"
-                      type="submit"
                     >
-                      Submit
+                      Submit Button
                     </button>
                   </div>
                 </form>
@@ -202,8 +115,8 @@
       </div>
     </section>
 
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-    <script src="./js/book.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <script src="./../public/js/book.js"></script>
   </body>
 </html>
