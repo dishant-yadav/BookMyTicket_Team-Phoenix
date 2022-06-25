@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #cccccc;
+  font-family: "Poppins", "Ubuntu";
+  background-image: url("../resources/images/backgound.png");
+  background-size: cover;
+}
+h1 {
+  font-size: 36px;
+  text-align: center;
+  text-decoration: underline;
+  padding: 50px;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  flex-direction: column;
+  gap: 40px;
+}
+main img {
+  border-radius: 10px;
+  transition: 0.2s all ease;
+}
+main img:hover {
+  transform: scale(1.2);
+  transition: 0.2s all ease;
+}
+.btn {
+  width: 220px;
+  height: 60px;
+  background-color: #064273;
+  color: beige;
+  border-radius: 10px;
+  font-size: larger;
+  font-weight: 400;
+  margin: 25px;
+  transition: 0.5s all ease;
+}
+.dwn-btn {
+  color: #064273;
+  outline: 2px solid #064273;
+  background-color: beige;
+}
+.btn:hover {
+  transform: scale(1.3);
+  text-decoration: underline;
+  transition: 0.5s all ease;
+}
