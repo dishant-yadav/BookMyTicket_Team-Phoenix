@@ -1,5 +1,5 @@
 //Unique Firebase Object
-var firebaseConfig = {
+var firebaseConfig1 = {
   apiKey: "AIzaSyA1auz8DprtLHdUUK4slrw9BHBpLeg-Xis",
 
   authDomain: "project-33df7.firebaseapp.com",
@@ -16,11 +16,11 @@ var firebaseConfig = {
 };
 
 //Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var firestore = firebase.firestore();
+firebase.initializeApp(firebaseConfig1);
+var firestore1 = firebase.firestore();
 
 //Variable to access database collection
-const db = firestore.collection("fomData");
+const db = firestore1.collection("admin data");
 
 //Get Submit Form
 let btn = document.getElementById("btn");
@@ -39,8 +39,8 @@ btn.addEventListener("click", (e) => {
   let sDate = document.getElementById("sDate").value;
 
   console.log(sDate);
-  firestore
-    .collection("ShowData")
+  firestore1
+    .collection("admin data")
     .get()
     .then((snapshot) => {
       snapshot.docs.forEach((doc) => {});

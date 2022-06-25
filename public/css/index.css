@@ -57,3 +57,8 @@ main img:hover {
   text-decoration: underline;
   transition: 0.5s all ease;
 }
+
+main p{
+  font-size: 36px;
+  font-weight: 500;
+}
