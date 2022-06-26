@@ -8,10 +8,21 @@
   box-sizing: border-box;
 }
 
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 body {
   background-color: #cccccc;
   font-family: "Poppins", "Ubuntu";
-  background-image: url("../resources/images/book-background.png");
   background-size: cover;
 }
 h1 {
@@ -58,7 +69,7 @@ main img:hover {
   transition: 0.5s all ease;
 }
 
-main p{
+main p {
   font-size: 36px;
   font-weight: 500;
 }
