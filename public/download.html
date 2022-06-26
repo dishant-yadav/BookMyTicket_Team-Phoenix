@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Tickets</title>
-</head>
-<body>
-    <p>THis is downlaod Page</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Your Certificate for PadhegaIndia</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="favicon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <main>
+      <label for="name">Type Your Name</label>
+      <input
+        required
+        type="text"
+        name="name"
+        autocomplete="name"
+        placeholder="Enter name"
+        id="name"
+        minlength="3"
+        maxlength="16"
+      /><label for="email">Type Your email</label>
+      <input
+        required
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        id="email"
+      />
+      <button id="submitBtn">Get Ticket</button>
+    </main>
+    <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="./FileSaver.js"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
+    <script src="./js/download.js"></script>
+  </body>
 </html>

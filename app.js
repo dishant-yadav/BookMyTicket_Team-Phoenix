@@ -10,18 +10,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/book", (req, res) => {
-  console.log("Booking page");
+  console.log("admin booking page");
   res.sendFile(path.join(__dirname, "./public/book.html"));
 });
-app.get("/success", (req, res) => {
-  console.log("Success");
-  res.send("");
+
+app.get("/success", async (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/download.html"));
 });
 
 app.get("/bookUser", (req, res) => {
-  console.log("Download page");
+  console.log("user booking page");
   res.sendFile(path.join(__dirname, "./public/bookUser.html"));
 });
+
 app.listen(port, () => {
   console.log("http://localhost:3000/");
   console.log(`Example app listening on port ${port}`);

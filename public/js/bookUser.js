@@ -37,8 +37,13 @@ btn.addEventListener("click", (e) => {
   let email = document.getElementById("email").value;
   let date = document.getElementById("date").value + "";
 
+  if (name.strip() == "") {
+    alert("Name cannot be blank");
+  }
 
-  console.log(email);
+  if (!email.includes("@") && !email.includes(".com")) {
+    alert("Name cannot be blank");
+  }
   firestore
     .collection("visitors")
     .get()
@@ -52,7 +57,8 @@ btn.addEventListener("click", (e) => {
       gender: gender,
       age: age,
       email: email,
-      date: date
+      date: date,
+      ticketCode: ticketCode(),
     })
     .then(() => {})
     .catch((error) => {
@@ -64,8 +70,20 @@ btn.addEventListener("click", (e) => {
 
   //clear form after submission
   clearForm();
+
+  window.location.href = "/success";
 });
 
 function clearForm() {
   document.getElementById("form").reset();
+}
+
+function ticketCode() {
+  const text = "ZTZV";
+  const number = (Math.floor(Math.random() * 10000) + 10000)
+    .toString()
+    .substring(1);
+  const ticketCode = text + number;
+  // console.log(ticketCode);
+  return ticketCode;
 }
