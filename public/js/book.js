@@ -17,6 +17,7 @@ btn.addEventListener("click", (e) => {
   let sVenue = document.getElementById("sVenue").value;
   let tickets = document.getElementById("ticketNo").value;
   let sDate = document.getElementById("sDate").value;
+  eventID++;
 
   firebase
     .database()
@@ -31,7 +32,6 @@ btn.addEventListener("click", (e) => {
       sDate: sDate,
     });
 
-  eventID++;
   //alert for form submission
   alert("Your Form Has Been Submitted Successfully");
 
