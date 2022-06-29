@@ -1,26 +1,6 @@
-//Unique Firebase Object
-var firebaseConfig1 = {
-  apiKey: "AIzaSyA1auz8DprtLHdUUK4slrw9BHBpLeg-Xis",
-
-  authDomain: "project-33df7.firebaseapp.com",
-
-  projectId: "project-33df7",
-
-  storageBucket: "project-33df7.appspot.com",
-
-  messagingSenderId: "597512362086",
-
-  appId: "1:597512362086:web:753017a65c25220e8975a7",
-
-  measurementId: "G-SVPN15G6Z4",
-};
-
-//Initialize Firebase
-firebase.initializeApp(firebaseConfig1);
-var firestore1 = firebase.firestore();
-
-//Variable to access database collection
-const db = firestore1.collection("admin data");
+let firestore = firebase.firestore();
+// variable to store the event id
+let eventID = 1;
 
 //Get Submit Form
 let btn = document.getElementById("btn");
@@ -38,29 +18,21 @@ btn.addEventListener("click", (e) => {
   let tickets = document.getElementById("ticketNo").value;
   let sDate = document.getElementById("sDate").value;
 
-  console.log(sDate);
-  firestore1
-    .collection("admin data")
-    .get()
-    .then((snapshot) => {
-      snapshot.docs.forEach((doc) => {});
-    });
-  //Save Form Data To Firebase
-  db.doc()
+  firebase
+    .database()
+    .ref("visitors/" + eventID)
     .set({
+      eventID: eventID,
       name: name,
       sName: sName,
       sDesc: sDesc,
       sVenue: sVenue,
       noOfTickets: tickets,
       sDate: sDate,
-    })
-    .then(() => {})
-    .catch((error) => {
-      console.log(error);
     });
 
-  //alert
+  eventID++;
+  //alert for form submission
   alert("Your Form Has Been Submitted Successfully");
 
   //clear form after submission
