@@ -1,5 +1,4 @@
-//Unique Firebase Object
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyA1auz8DprtLHdUUK4slrw9BHBpLeg-Xis",
 
   authDomain: "project-33df7.firebaseapp.com",
@@ -14,16 +13,20 @@ var firebaseConfig = {
 
   measurementId: "G-SVPN15G6Z4",
 };
-
-//Initialize Firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-var firestore = firebase.firestore();
 
-//Variable to access database collection
-const db = firestore.collection("vistors");
+let firestore = firebase.firestore();
+// variable to store the event id
+
+
+// logic to display the monumnet price and name
+const price = 45;
+const noOfTickets = 50;
 
 //Get Submit Form
 let btn = document.getElementById("btn");
+let ticketNo = 1;
 
 //Create Event Listener To Allow Form Submission
 btn.addEventListener("click", (e) => {
@@ -33,45 +36,39 @@ btn.addEventListener("click", (e) => {
   //Get Form Values
   let name = document.getElementById("name").value;
   let age = document.getElementById("age").value;
-  let gender = document.getElementById("gender").value;
+  let place = document.getElementById("place").value;
+  // let gender = document.getElementById("gender").value;
   let email = document.getElementById("email").value;
   let date = document.getElementById("date").value + "";
+  
+  if (ticketNo <= noOfTickets) {
 
-  if (name.strip() == "") {
-    alert("Name cannot be blank");
+    firebase
+      .database()
+      .ref("visitors/" + ticketNo)
+      .set({
+        name: name,
+        // gender:gender,
+        place: place,
+        age: age,
+        email: email,
+        date: date,
+        ticketCode: ticketCode(),
+        ticketNo: ticketNo,
+        price: price,
+      });
+    
+    ticketNo++;
+    //alert for form submission
+    alert("Your Form Has Been Submitted Successfully");
+    window.location.href = "/download";
   }
-
-  if (!email.includes("@") && !email.includes(".com")) {
-    alert("Name cannot be blank");
+  else {
+    alert("Your are late!!!\nCome back tommorow to book the ticket");
   }
-  firestore
-    .collection("visitors")
-    .get()
-    .then((snapshot) => {
-      snapshot.docs.forEach((doc) => {});
-    });
-  //Save Form Data To Firebase
-  db.doc()
-    .set({
-      name: name,
-      gender: gender,
-      age: age,
-      email: email,
-      date: date,
-      ticketCode: ticketCode(),
-    })
-    .then(() => {})
-    .catch((error) => {
-      console.log(error);
-    });
-
-  //alert
-  alert("Your Form Has Been Submitted Successfully");
 
   //clear form after submission
   clearForm();
-
-  window.location.href = "/success";
 });
 
 function clearForm() {
@@ -87,3 +84,4 @@ function ticketCode() {
   // console.log(ticketCode);
   return ticketCode;
 }
+

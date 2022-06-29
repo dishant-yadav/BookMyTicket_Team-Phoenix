@@ -9,12 +9,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get("/book", (req, res) => {
+app.get("/bookAdmin", (req, res) => {
   console.log("admin booking page");
-  res.sendFile(path.join(__dirname, "./public/book.html"));
+  res.sendFile(path.join(__dirname, "./public/bookAdmin.html"));
 });
 
-app.get("/success", async (req, res) => {
+app.get("/download", async (req, res) => {
   res.sendFile(path.join(__dirname, "./public/download.html"));
 });
 
