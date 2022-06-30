@@ -19,15 +19,10 @@ firebase.initializeApp(firebaseConfig);
 let firestore = firebase.firestore();
 // variable to store the event id
 
-
-// logic to display the monumnet price and name
-const price = 45;
-const noOfTickets = 50;
-
 //Get Submit Form
 let btn = document.getElementById("btn");
 let ticketNo = 1;
-
+const price = 41;
 //Create Event Listener To Allow Form Submission
 btn.addEventListener("click", (e) => {
   //Prevent Default Form Submission Behavior
@@ -40,33 +35,26 @@ btn.addEventListener("click", (e) => {
   // let gender = document.getElementById("gender").value;
   let email = document.getElementById("email").value;
   let date = document.getElementById("date").value + "";
-  
-  if (ticketNo <= noOfTickets) {
+  ticketNo++;
 
-    firebase
-      .database()
-      .ref("visitors/" + ticketNo)
-      .set({
-        name: name,
-        // gender:gender,
-        place: place,
-        age: age,
-        email: email,
-        date: date,
-        ticketCode: ticketCode(),
-        ticketNo: ticketNo,
-        price: price,
-      });
-    
-    ticketNo++;
-    //alert for form submission
-    alert("Your Form Has Been Submitted Successfully");
-    window.location.href = "/download";
-  }
-  else {
-    alert("Your are late!!!\nCome back tommorow to book the ticket");
-  }
-
+  console.log(email);
+  firebase
+    .database()
+    .ref("visitors/" + ticketNo)
+    .set({
+      name: name,
+      // gender:gender,
+      place: place,
+      age: age,
+      email: email,
+      date: date,
+      ticketCode: ticketCode(),
+      ticketNo: ticketNo,
+      price: price,
+    });
+  //alert for form submission
+  alert("Your Form Has Been Submitted Successfully");
+  // window.location.href = "/download";
   //clear form after submission
   clearForm();
 });
@@ -84,4 +72,3 @@ function ticketCode() {
   // console.log(ticketCode);
   return ticketCode;
 }
-

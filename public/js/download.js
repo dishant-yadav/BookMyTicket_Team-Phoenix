@@ -3,6 +3,45 @@ const name = document.getElementById("name");
 const btn = document.getElementById("btn");
 const form = document.getElementById("form");
 
+const firebaseConfig = {
+  apiKey: "AIzaSyA1auz8DprtLHdUUK4slrw9BHBpLeg-Xis",
+
+  authDomain: "project-33df7.firebaseapp.com",
+
+  projectId: "project-33df7",
+
+  storageBucket: "project-33df7.appspot.com",
+
+  messagingSenderId: "597512362086",
+
+  appId: "1:597512362086:web:753017a65c25220e8975a7",
+
+  measurementId: "G-SVPN15G6Z4",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+let firestore = firebase.firestore();
+let firebaseRef = firebase.database().ref("visitors");
+firebaseRef.once("value", (snap) => {
+  let data = snap.val();
+  for (let i in data) {
+    console.log(data[i]);
+  }
+});
+let dbName, dbEmail;
+
+firebase
+  .database()
+  .ref("student/" + 2)
+  .on("value", function (snap) {
+    dbName = snap.val().name;
+    dbEmail = snap.val().email;
+  });
+
+// console.log(dbName);
+// console.log(dbEmail);
+
 const { PDFDocument, rgb, degrees } = PDFLib;
 
 const capitalize = (str, lower = false) =>
@@ -23,8 +62,8 @@ btn.addEventListener("click", () => {
 });
 
 const generatePDF = async (name) => {
-  const existingPdfBytes = await fetch("./../resources/ticket.pdf").then((res) =>
-    res.arrayBuffer()
+  const existingPdfBytes = await fetch("./../resources/ticket.pdf").then(
+    (res) => res.arrayBuffer()
   );
 
   // Load a PDFDocument from the existing PDF bytes
@@ -37,7 +76,7 @@ const generatePDF = async (name) => {
   );
 
   // Embed our custom font in the document
-  const SanChezFont = await pdfDoc.embedFont(fontBytes);
+  const poppinsFont = await pdfDoc.embedFont(fontBytes);
 
   // Get the first page of the document
   const pages = pdfDoc.getPages();
@@ -47,14 +86,20 @@ const generatePDF = async (name) => {
     x: 135,
     y: 470,
     size: 24,
-    font: SanChezFont,
+    font: poppinsFont,
+    color: rgb(0.2, 0.84, 0.67),
+  });
+
+  firstPage.drawText("Hello", {
+    x: 135,
+    y: 435,
+    size: 24,
+    font: poppinsFont,
     color: rgb(0.2, 0.84, 0.67),
   });
 
   const pdfBytes = await pdfDoc.save();
-  console.log("Done creating");
   const fileName = name + ".pdf";
-  console.log(fileName);
   const file = new File([pdfBytes], fileName, {
     type: "application/pdf;charset=utf-8",
   });
