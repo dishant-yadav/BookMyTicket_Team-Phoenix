@@ -25,21 +25,8 @@ firebase.initializeApp(firebaseConfig);
 
 const { PDFDocument, rgb, degrees } = PDFLib;
 
-const capitalize = (str, lower = false) =>
-  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
-    match.toUpperCase()
-  );
-
 btn.addEventListener("click", () => {
-  const val = capitalize(name.value);
-
-  //check if the text is empty or not
-  if (val.trim() !== "" && name.checkValidity()) {
-    // console.log(val);
-    generatePDF(val);
-  } else {
-    name.reportValidity();
-  }
+  generatePDF(name);
 });
 
 const generatePDF = async (name) => {
@@ -98,7 +85,7 @@ function fetchAllData() {
   firebaseRef.once("value", function (snapshot) {
     let visitorsData = snapshot.val();
     dbName = visitorsData[name].name;
-    // console.log(visitorsData[name].name);
+    console.log(visitorsData[name].name);
     // console.log(visitorsData[name].age);
   });
   return dbName;
