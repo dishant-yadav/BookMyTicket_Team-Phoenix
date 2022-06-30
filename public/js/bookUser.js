@@ -21,10 +21,10 @@ let firestore = firebase.firestore();
 
 //Get Submit Form
 let btn = document.getElementById("btn");
-let ticketNo = 1;
-const price = 41;
+// let ticketNo = 1;
+const price = 45;
 //Create Event Listener To Allow Form Submission
-btn.addEventListener("click", (e) => {
+btn.addEventListener("click", async (e) => {
   //Prevent Default Form Submission Behavior
   e.preventDefault();
 
@@ -35,12 +35,10 @@ btn.addEventListener("click", (e) => {
   // let gender = document.getElementById("gender").value;
   let email = document.getElementById("email").value;
   let date = document.getElementById("date").value + "";
-  ticketNo++;
 
-  console.log(email);
-  firebase
+  await firebase
     .database()
-    .ref("visitors/" + ticketNo)
+    .ref("visitors/" + name)
     .set({
       name: name,
       // gender:gender,
@@ -49,12 +47,12 @@ btn.addEventListener("click", (e) => {
       email: email,
       date: date,
       ticketCode: ticketCode(),
-      ticketNo: ticketNo,
+      // ticketNo: ticketNo++,
       price: price,
     });
   //alert for form submission
   alert("Your Form Has Been Submitted Successfully");
-  // window.location.href = "/download";
+  window.location.href = "/download";
   //clear form after submission
   clearForm();
 });

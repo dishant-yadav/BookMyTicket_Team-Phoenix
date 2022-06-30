@@ -1,5 +1,5 @@
 // logic to print the ticket
-const name = document.getElementById("name");
+const name = document.getElementById("name").value;
 const btn = document.getElementById("btn");
 const form = document.getElementById("form");
 
@@ -21,26 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-let firestore = firebase.firestore();
-let firebaseRef = firebase.database().ref("visitors");
-firebaseRef.once("value", (snap) => {
-  let data = snap.val();
-  for (let i in data) {
-    console.log(data[i]);
-  }
-});
-let dbName, dbEmail;
-
-firebase
-  .database()
-  .ref("student/" + 2)
-  .on("value", function (snap) {
-    dbName = snap.val().name;
-    dbEmail = snap.val().email;
-  });
-
-// console.log(dbName);
-// console.log(dbEmail);
+// let firestore = firebase.firestore();
 
 const { PDFDocument, rgb, degrees } = PDFLib;
 
@@ -110,3 +91,16 @@ const generatePDF = async (name) => {
 function clearForm() {
   form.reset();
 }
+
+function fetchAllData() {
+  let firebaseRef = firebase.database().ref("visitors");
+  let dbName;
+  firebaseRef.once("value", function (snapshot) {
+    let visitorsData = snapshot.val();
+    dbName = visitorsData[name].name;
+    // console.log(visitorsData[name].name);
+    // console.log(visitorsData[name].age);
+  });
+  return dbName;
+}
+fetchAllData();
